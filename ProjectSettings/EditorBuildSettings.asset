@@ -6,8 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_ThePrototype/Scenes/ThePrototypeScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/StarterAssets/ThirdPersonController/Scenes/Playground.unity
+    guid: e9017d5f96b9f09489b4b37e1d6eb914
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6e7ca36a8e0dd334b904211064d1a5e2, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4772a2c6eeb311548b095484babe43cf, type: 2}
   m_UseUCBPForAssetBundles: 0
