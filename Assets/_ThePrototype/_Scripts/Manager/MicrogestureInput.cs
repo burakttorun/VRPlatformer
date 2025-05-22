@@ -1,19 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ThePrototype.Scripts.Manager
 {
     public class MicrogestureInput : MonoBehaviour
     {
-        public OVRHand ovrHand;
+        public OVRHand ovrHandRight;
+        public OVRHand ovrHandLeft;
         private Vector2 _moveInput = Vector2.zero;
         public StarterAssets.StarterAssetsInputs inputs;
 
         private void Update()
         {
-            OVRHand.MicrogestureType microgestureType = ovrHand.GetMicrogestureType();
+            OVRHand.MicrogestureType microgestureTypeRight = ovrHandRight.GetMicrogestureType();
+            OVRHand.MicrogestureType microgestureTypeLeft = ovrHandLeft.GetMicrogestureType();
 
-            _moveInput = microgestureType switch
+            _moveInput = microgestureTypeRight switch
             {
                 OVRHand.MicrogestureType.SwipeLeft => Vector2.left,
                 OVRHand.MicrogestureType.SwipeRight => Vector2.right,
@@ -23,6 +26,10 @@ namespace ThePrototype.Scripts.Manager
                 _ => _moveInput
             };
             inputs.MoveInput(_moveInput);
+            if (microgestureTypeLeft == OVRHand.MicrogestureType.ThumbTap)
+            {
+                inputs.JumpInput(true);
+            }
         }
     }
 }
